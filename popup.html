@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>酸梅的截屏生成器</title>
+  <style>
+    body {
+      width: 375px;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    .style-selector {
+      display: flex;
+      gap: 8px;
+    }
+    .style-option {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .style-option.active {
+      background: #e6f3ff;
+      border-color: #1890ff;
+    }
+    .preview-container {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+    }
+    .button-group {
+      display: flex;
+      gap: 8px;
+    }
+    button {
+      flex: 1;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #1890ff;
+      color: white;
+    }
+    button:hover {
+      background: #40a9ff;
+    }
+    button:disabled {
+      background: #d9d9d9;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <textarea id="textInput" placeholder="请粘贴或输入要转换的文字内容"></textarea>
+    
+    <div class="style-selector">
+      <div class="style-option active" data-style="simple">简约白底黑字</div>
+      <div class="style-option" data-style="warm">暖色系文艺风</div>
+      <div class="style-option" data-style="dark">深色模式</div>
+    </div>
+
+    <div class="preview-container">
+      <canvas id="previewCanvas"></canvas>
+    </div>
+
+    <div class="button-group">
+      <button id="previewBtn">预览效果</button>
+      <button id="downloadBtn" disabled>下载图片</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
